@@ -20,3 +20,15 @@ If you use pip to install this then the dependency and any other requirements wi
 <pre>
     pip install -e git+git://github.com/adlibre/django-bcp.git#egg=django-bcp
 </pre>
+
+## NB ReportLab Bug..
+
+ReportLab 2.5 has a typo. "OpenActions" should be "OpenAction" as per ISO 32000-1:2008.
+
+diff -r tmp/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py
+1022c1022
+<         Dests Outlines Pages Threads AcroForm Names OpenAction PageMode URI
+---
+>         Dests Outlines Pages Threads AcroForm Names OpenActions PageMode URI
+
+You will need to manually patch this, otherwise the barcode will not automatically print.
