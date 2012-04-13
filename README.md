@@ -18,5 +18,5 @@ However it should be trivial to add support for any format that ReportLab suppor
 If you use pip to install this then the dependency and any other requirements will be taken care of:
 
 <pre>
-    pip install -e git+git://github.com/adlibre/bcp.git#egg=bcp
+    pip install -e git+git://github.com/adlibre/django-bcp.git#egg=django-bcp
 </pre>
