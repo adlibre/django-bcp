@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='bcp',
-    version='0.1.1',
+    version='0.1.2',
     url='https://github.com/adlibre/django-bcp',
     packages=['bcp',],
     install_requires=['django','reportlab',],

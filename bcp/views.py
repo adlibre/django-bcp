@@ -18,7 +18,7 @@ except ImportError:
     from StringIO import StringIO
 
 
-def print_barcode_embed_example(request, code, barcode_type, template='bcp/embed_example.html'):
+def print_barcode_embed_example(request, code, barcode_type, template='embed_example.html'):
     """
     This is a test page showing how you can embed a request to print a barcode
     """
@@ -27,7 +27,7 @@ def print_barcode_embed_example(request, code, barcode_type, template='bcp/embed
     return render(request, template, context)
 
 
-def print_barcode(request, code, barcode_type, template='bcp/print.html'):
+def print_barcode(request, code, barcode_type, template='print.html'):
     """
     This page causes the browser to request the barcode be printed
     """
