@@ -3,9 +3,9 @@
 from distutils.core import setup
 
 setup(name='bcp',
-    version='0.1.3',
+    version='0.1.4',
     url='https://github.com/adlibre/django-bcp',
     packages=['bcp',],
     install_requires=['django','reportlab',],
-    package_data={ 'bcp': ['fonts/*', 'templates/*', 'static/*'] },
+    package_data={ 'bcp': ['fonts/*', 'templates/*', 'static/js/*',] },
 )
