@@ -17,8 +17,14 @@ However it should be trivial to add support for any format that ReportLab suppor
 
 If you use pip to install this then the dependency and any other requirements will be taken care of:
 
+Prod:
 <pre>
-    pip install -e git+git://github.com/adlibre/django-bcp.git#egg=django-bcp
+pip install git://github.com/adlibre/django-bcp.git
+</pre>
+
+Dev:
+<pre>
+pip install -e git+git@github.com:adlibre/django-bcp.git#egg=bcp-dev
 </pre>
 
 ## NB ReportLab 2.5 Bug
@@ -34,3 +40,4 @@ ReportLab 2.5 has a typo. "OpenActions" should be "OpenAction" as per ISO 32000-
 </pre>
 
 You will need to manually patch this, otherwise the barcode will not automatically print.
+
