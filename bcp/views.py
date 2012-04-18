@@ -22,7 +22,7 @@ def print_barcode_embed_example(request, code, barcode_type, template='embed_exa
     """
     This is a test page showing how you can embed a request to print a barcode
     """
-    bcp_url = reverse('bcp-print', kwargs = {'barcode_type': barcode_type, 'code': code, 'auto_print': True, })
+    bcp_url = reverse('bcp-print', kwargs = {'barcode_type': barcode_type, 'code': code,})
     context = { 'bcp_url': bcp_url, }
     return render(request, template, context)
 
@@ -31,12 +31,12 @@ def print_barcode(request, code, barcode_type, template='print.html'):
     """
     This page causes the browser to request the barcode be printed
     """
-    pdf_url = reverse('bcp-generate', kwargs = {'barcode_type': barcode_type, 'code': code, 'auto_print': True, })
+    pdf_url = reverse('bcp-generate', kwargs = {'barcode_type': barcode_type, 'code': code,})
     context = { 'pdf_url': pdf_url, }
     return render(request, template, context)
 
 
-def generate(request, code, barcode_type='Standard39', auto_print=False):
+def generate(request, code, barcode_type='Standard39', auto_print=True):
     """
      Returns a PDF Barcode using ReportLab
     """
