@@ -52,15 +52,15 @@ def generate(request, code, barcode_type='Standard39', auto_print=False):
     response['Content-Disposition'] = 'inline; filename=%s.pdf' % (code,)
 
     # Config
-    import settings
-    font_size = settings.FONT_SIZE
-    bar_height = settings.BAR_HEIGHT
-    bar_width = settings.BAR_WIDTH
-    font_name = settings.FONT_NAME
-    font_path = settings.FONT_PATH
+    import bcp.settings as bcp_settings
+    font_size = bcp_settings.FONT_SIZE
+    bar_height = bcp_settings.BAR_HEIGHT
+    bar_width = bcp_settings.BAR_WIDTH
+    font_name = bcp_settings.FONT_NAME
+    font_path = bcp_settings.FONT_PATH
     try:
         # If this is extended to different barcode types, then these options will need to be specified differently, eg not all formats support checksum.
-        bc = createBarcodeDrawing(barcode_type, barHeight=bar_height, barWidth=bar_width, value=str(code), isoScale=True, quiet=settings.BAR_QUIET, checksum=settings.BAR_CHECKSUM,)
+        bc = createBarcodeDrawing(barcode_type, barHeight=bar_height, barWidth=bar_width, value=str(code), isoScale=True, quiet=bcp_settings.BAR_QUIET, checksum=bcp_settings.BAR_CHECKSUM,)
     except KeyError, e:
         return HttpResponseBadRequest('Barcode Generation Failed: %s' % (e))
 
