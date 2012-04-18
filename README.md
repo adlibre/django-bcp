@@ -34,9 +34,9 @@ ReportLab 2.5 has a typo. "OpenActions" should be "OpenAction" as per ISO 32000-
 <pre>
 diff -r broken/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py fixed/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py
 1022c1022
-<         Dests Outlines Pages Threads AcroForm Names OpenActions PageMode URI
+&lt;         Dests Outlines Pages Threads AcroForm Names OpenActions PageMode URI
 ---
->         Dests Outlines Pages Threads AcroForm Names OpenAction PageMode URI
+&gt;         Dests Outlines Pages Threads AcroForm Names OpenAction PageMode URI
 </pre>
 
 You will need to manually patch this, otherwise the barcode will not automatically print.
