@@ -22,7 +22,7 @@ def print_barcode_embed_example(request, code, barcode_type, template='embed_exa
     """
     This is a test page showing how you can embed a request to print a barcode
     """
-    bcp_url = reverse('bcp-print', kwargs = {'barcode_type': barcode_type, 'code': code, })
+    bcp_url = reverse('bcp-print', kwargs = {'barcode_type': barcode_type, 'code': code, 'auto_print': True, })
     context = { 'bcp_url': bcp_url, }
     return render(request, template, context)
 
@@ -31,17 +31,15 @@ def print_barcode(request, code, barcode_type, template='print.html'):
     """
     This page causes the browser to request the barcode be printed
     """
-    pdf_url = reverse('bcp-generate', kwargs = {'barcode_type': barcode_type, 'code': code, })
+    pdf_url = reverse('bcp-generate', kwargs = {'barcode_type': barcode_type, 'code': code, 'auto_print': True, })
     context = { 'pdf_url': pdf_url, }
     return render(request, template, context)
 
 
-def generate(request, code, barcode_type='Standard39', auto_print=True):
+def generate(request, code, barcode_type='Standard39', auto_print=False):
     """
      Returns a PDF Barcode using ReportLab
     """
-
-    import os
 
     from reportlab.graphics.shapes import String
     from reportlab.graphics import renderPDF
@@ -54,28 +52,31 @@ def generate(request, code, barcode_type='Standard39', auto_print=True):
     response['Content-Disposition'] = 'inline; filename=%s.pdf' % (code,)
 
     # Config
-    font_size = 10
-    bar_height = 30
-    bar_width = 0.75 # default is 0.54
-    font_path = os.path.join(os.path.split(__file__)[0], 'fonts', 'OCRA.ttf',)
+    import settings
+    font_size = settings.FONT_SIZE
+    bar_height = settings.BAR_HEIGHT
+    bar_width = settings.BAR_WIDTH
+    font_name = settings.FONT_NAME
+    font_path = settings.FONT_PATH
     try:
-        bc = createBarcodeDrawing(barcode_type, barHeight=bar_height, barWidth=bar_width, value=str(code), checksum=False,)
+        # If this is extended to different barcode types, then these options will need to be specified differently, eg not all formats support checksum.
+        bc = createBarcodeDrawing(barcode_type, barHeight=bar_height, barWidth=bar_width, value=str(code), isoScale=True, quiet=settings.BAR_QUIET, checksum=settings.BAR_CHECKSUM,)
     except KeyError, e:
         return HttpResponseBadRequest('Barcode Generation Failed: %s' % (e))
 
-    # Register the OCRA font
-    pdfmetrics.registerFont(TTFont('OCRA', font_path))
+    # Register the font
+    pdfmetrics.registerFont(TTFont(font_name, font_path))
 
     # Set JS to Autoprint document
     if auto_print:
         pdfdoc.PDFCatalog.OpenAction = '<</S/JavaScript/JS(this.print\({bUI:true,bSilent:false,bShrinkToFit:true}\);)>>'
         pdfdoc.PDFInfo.title = code # nicety :)
 
-    # Position for our text
+    # Position for our text label
     x = bc.width / 2
     y = - font_size  # or (bar_height + font_size) if placing on top
     # The textual barcode
-    text = String(x, y, code, textAnchor='middle', fontName='OCRA', fontSize=font_size)
+    text = String(x, y, code, textAnchor='middle', fontName=font_name, fontSize=font_size)
     bc.add(text)
     bc = bc.resized() # resize barcode drawing object to accommodate text added
 
