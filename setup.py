@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='bcp',
-    version='0.1.6',
+    version='0.1.7',
     long_description=open('README.md').read(),
     url='https://github.com/adlibre/django-bcp',
     packages=['bcp',],
