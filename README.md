@@ -19,7 +19,7 @@ If you use pip to install this then the dependency and any other requirements wi
 
 Prod:
 <pre>
-pip install git://github.com/adlibre/django-bcp.git
+pip install git+git://github.com/adlibre/django-bcp.git
 </pre>
 
 Dev:
