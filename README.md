@@ -18,14 +18,12 @@ However it would be trivial to add support for any format that ReportLab support
 If you use pip then the dependencies and requirements will be taken care of:
 
 Prod:
-<pre>
-pip install git+git://github.com/adlibre/django-bcp.git
-</pre>
+
+    pip install git+git://github.com/adlibre/django-bcp.git
 
 Dev:
-<pre>
-pip install -e git+git@github.com:adlibre/django-bcp.git#egg=bcp-dev
-</pre>
+
+    pip install -e git+git@github.com:adlibre/django-bcp.git#egg=bcp-dev
 
 ## N.B. ReportLab 2.5 Bug
 
@@ -39,5 +37,6 @@ diff -r broken/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py fixed/lib
 &gt;         Dests Outlines Pages Threads AcroForm Names OpenAction PageMode URI
 </pre>
 
-You will need to manually patch this, otherwise the barcode will not automatically print.
+You will need to manually patch this, otherwise the barcode will not automatically print:
 
+    sed -i -e 's@OpenActions@OpenAction@g' lib/python*/site-packages/reportlab/pdfbase/pdfdoc.py
