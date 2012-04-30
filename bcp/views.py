@@ -1,6 +1,6 @@
 """
 Module: Barcode Printer Views
-Project: Adlibre DMS
+Project: Django BCP
 Copyright: Adlibre Pty Ltd 2012
 License: See LICENSE for license information
 """
