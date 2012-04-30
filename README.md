@@ -23,7 +23,7 @@ Prod:
 
 Dev:
 
-    pip install -e git+git@github.com:adlibre/django-bcp.git#egg=bcp-dev
+    pip install -e git+git@github.com:adlibre/django-bcp.git#egg=bcp
 
 ## N.B. ReportLab 2.5 Bug
 
