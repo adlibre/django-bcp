@@ -1,12 +1,13 @@
 # Barcode Printer for Django
 
-This is a reusable Django application which generates PDF barcodes in various formats with a human, and machine readable textual label.
+This is a reusable Django application which generates PDF barcodes in various formats with a human, and machine (OCR) readable textual label.
 
 These barcodes are rendered as a PDF with embedded JavaScript which prompts the PDF to be immediately printed.
 
-Currently this is used by [Adlibre DMS](http://www.adlibre.com.au/adlibre-dms/) for document barcode generation, but the application is generic and could be reused in any Django app that requires barcode printing.
+Currently this is used by [Adlibre DMS](http://www.adlibre.com.au/adlibre-dms/) for document barcode generation, 
+but this application is generic and can be reused in any Django app that requires barcode printing.
 
-ReportLab is used for the barcode generation. And the following formats are supported:
+[ReportLab](http://www.reportlab.com) is used for the barcode generation. And the following formats are supported:
 
  * Code39 (3 of 9),
  * Code128.
