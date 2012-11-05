@@ -25,7 +25,7 @@ Dev:
 
     pip install -e git+git@github.com:adlibre/django-bcp.git#egg=bcp
 
-## N.B. ReportLab 2.5 Bug
+## N.B. ReportLab Bug
 
 ReportLab 2.5/2.6 has a typo. "OpenActions" should be "OpenAction" as per ISO 32000-1:2008.
 
