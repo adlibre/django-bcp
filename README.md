@@ -1,6 +1,6 @@
 # Barcode Printer for Django
 
-This is a reusable Django application which generates PDF barcodes in various formats with a human, and machine (OCR) readable textual label.
+This is a reusable Django application which generates PDF barcodes in various formats with a human and machine (OCR-A) readable textual label.
 
 These barcodes are rendered as a PDF with embedded JavaScript which prompts the PDF to be immediately printed.
 
@@ -13,6 +13,12 @@ but this application is generic and can be reused in any Django app that require
  * Code128.
 
 However it would be trivial to add support for any format that ReportLab supports.
+
+## Example
+
+Barcode automatically printing from URL:
+
+![Barcode Printer for Django - Automatic Printing](https://github.com/adlibre/django-bcp/raw/master/docs/example.png)
 
 ## Installation
 
