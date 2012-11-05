@@ -27,7 +27,7 @@ Dev:
 
 ## N.B. ReportLab 2.5 Bug
 
-ReportLab 2.5 has a typo. "OpenActions" should be "OpenAction" as per ISO 32000-1:2008.
+ReportLab 2.5/2.6 has a typo. "OpenActions" should be "OpenAction" as per ISO 32000-1:2008.
 
 <pre>
 diff -r broken/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py fixed/lib/python2.7/site-packages/reportlab/pdfbase/pdfdoc.py
