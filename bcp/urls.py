@@ -4,10 +4,12 @@ Project: Django BCP
 Copyright: Adlibre Pty Ltd 2012
 License: See LICENSE for license information
 """
+try:
+    from django.conf.urls.defaults import *
+except:
+    from django.conf.urls import patterns, url
 
-from django.conf.urls.defaults import *
-
-import mdtui.views
+#import mdtui.views
 
 urlpatterns = patterns('bcp.views',
     url(r'^(?P<barcode_type>(Standard39|Code128))/(?P<code>[\w-]+)$', 'generate', name='bcp-generate'),
