@@ -7,6 +7,9 @@ setup(name='django-bcp',
     long_description=open('README.md').read(),
     url='https://github.com/adlibre/django-bcp',
     packages=['bcp',],
-    install_requires=['django', 'reportlab', ],
+    install_requires=[
+    	'django', 
+    	'reportlab==2.6', 
+    ],
     package_data={'bcp': ['fonts/*', 'templates/*', ]},
 )
