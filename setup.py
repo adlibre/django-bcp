@@ -2,7 +2,7 @@
 
 from setuptools import setup
 
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 
 setup(name='django-bcp',
     version=VERSION,
@@ -25,7 +25,7 @@ setup(name='django-bcp',
     ],
     install_requires=[
     	'django', 
-    	'reportlab>=2.6', 
+    	'reportlab==2.6', 
     ],
     package_data={'bcp': ['fonts/*', 'templates/*', ]},
 )
