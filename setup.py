@@ -25,7 +25,7 @@ setup(name='django-bcp',
     ],
     install_requires=[
     	'django', 
-    	'reportlab==2.6', 
+    	'reportlab>=2.6', 
     ],
     package_data={'bcp': ['fonts/*', 'templates/*', ]},
 )
